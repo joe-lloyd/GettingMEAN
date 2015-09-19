@@ -2,13 +2,13 @@ var app = angular.module('myAppRouter', ['ui.router']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/Home');
 
     $stateProvider
 
         // HOME STATES AND NESTED VIEWS ========================================
-        .state('home', {
-            url: '/home',
+        .state('Home', {
+            url: '/Home',
             templateUrl: 'app/components/home/partial-home.html'
         })
 

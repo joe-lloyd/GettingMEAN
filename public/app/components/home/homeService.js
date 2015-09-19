@@ -1,12 +1,12 @@
 angular.module('myAppHomeService', [])
 
-.factory('homeContent', function(){
+.factory('homeContent', function($http){
 	return {
 		getHeader: function(){
 			return "Welcome Human";
 		},
 		getSubheader: function(){
-			return "To Joe's Awesome Website";
+			return  $http.get('http://localhost:3000/home');
 		},
 		getContent: function(){
 			var content = [
