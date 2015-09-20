@@ -1,20 +1,11 @@
 var express = require('express');
 var router = express.Router();
+var app = express();
 
-/* GET home page. */
-router.get('/home', function(req, res) {
+app.get('/api/home', function(req, res) {
   console.log('home hit');
-  res = 'Some Text';
-});
-
-router.get('/Home', function(req, res) {
-  console.log('Home hit');
-  res = 'Some Text';
-});
-
-router.get('/', function(req, res) {
-  console.log('/ hit');
-  res = 'Some Text';
+  var subheader = {subheader: 'To Joe\'s sick ass website'}
+  res.json(subheader);
 });
 
 module.exports = router;

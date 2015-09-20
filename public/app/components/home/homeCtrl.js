@@ -9,7 +9,7 @@ angular.module('myAppHomeCtrl', []).controller('homeCtrl', ['$scope', 'homeConte
 	// });
 
 	homeContent.getSubheader().then(function(response){
-		$scope.subheading = response[0];
+		$scope.subheading = response.data.subheader;
 	});
 
 

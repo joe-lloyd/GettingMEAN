@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 // additional routes
-//var routes = require('./routes/index');
+var routes = require('./routes/index');
 //var users = require('./routes/users');
 
 // connected to localhost
@@ -65,8 +65,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.get('/api/home',function(req,res){
+  console.log('home hit');
+  var subheader = {subheader: 'To Joe\'s sick ass website'}
+  res.send(subheader);
+});
+
 //app.use('/', routes);
-//app.use('/home', routes);
+//app.use('/api/home', routes);
 //app.use('/Home', routes);
 //app.use('/users', users);
 
