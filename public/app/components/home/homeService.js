@@ -2,11 +2,8 @@ angular.module('myAppHomeService', [])
 
 .factory('homeContent', function($http){
 	return {
-		getHeader: function(){
-			return "Welcome Human";
-		},
-		getSubheader: function(){
-			return  $http.get('http://localhost:3000/api/home');
+		getHeadings: function(){
+			return $http.get('http://localhost:3000/api/home/headings');
 		},
 		getContent: function(){
 			var content = [
