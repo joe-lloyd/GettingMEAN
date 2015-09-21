@@ -4,17 +4,13 @@ angular.module('myAppHomeCtrl', []).controller('homeCtrl', ['$scope', 'homeConte
 	// 	$scope.dataset = response;
 	// });
 
-	// homeContent.getHeader().then(function(response){
-	// 	$scope.header = response;
-	// });
-
-	homeContent.getSubheader().then(function(response){
+	homeContent.getHeadings().then(function(response){
+		$scope.header = response.data.mainheader;
 		$scope.subheading = response.data.subheader;
 	});
 
-
 	$scope.dataset = homeContent.getContent();
-	$scope.header = homeContent.getHeader();
+	//$scope.header = homeContent.getHeader();
 	//$scope.subheading = homeContent.getSubheader();
 	//homeContent.getSubheader();
 

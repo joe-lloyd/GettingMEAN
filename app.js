@@ -9,49 +9,51 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 // additional routes
-var routes = require('./routes/index');
+var routes = require('./routes/home.js');
 //var users = require('./routes/users');
 
-// connected to localhost
-mongoose.connect("mongodb://localhost:27017/MyAppDataStore");
-
 var app = express();
+
+// ### MONGO DB SECTION ###
+
+// connected to localhost
+mongoose.connect("mongodb://localhost:27420/myAppStore");
 
 // mongoose connection
 var db = mongoose.connection;
 
 //turn on db and check erors, displaying if connected
-// db.on('error', console.error.bind(console, 'connection error:'));
-// db.once('open', function (callback) {
-// 	console.log("open");
-// 	var MenuSchema = mongoose.Schema({
-// 		title: String
-// 	});
-//  	 //schema
-//  	 var Menu = mongoose.model('Menu', MenuSchema);
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function (callback) {
+	console.log("open");
+	var MenuSchema = mongoose.Schema({
+		title: String
+	});
+ 	 //schema
+ 	 var Menu = mongoose.model('Menu', MenuSchema);
 
-// 	// add a record
-// 	var about = new Menu({ title: 'About' });
+	// // add a record
+	// var about = new Menu({ title: 'About' });
 
-//   	// save the record
-//   	about.save(function (err, about) {
-//   		if (err) return console.error(err);
-//   	});
+ //  	// save the record
+ //  	about.save(function (err, about) {
+ //  		if (err) return console.error(err);
+ //  	});
 
-//   	// add a record
-// 	var contact = new Menu({ title: 'Contact' });
+ //  	// add a record
+	// var contact = new Menu({ title: 'Contact' });
 
-//   	// save the record
-//   	contact.save(function (err, about) {
-//   		if (err) return console.error(err);
-//   	});
+ //  	// save the record
+ //  	contact.save(function (err, about) {
+ //  		if (err) return console.error(err);
+ //  	});
 
-//   	// find all of the records
-//   	Menu.find(function (err, Menus) {
-//   		if (err) return console.error(err);
-//   		console.log(Menus);
-//   	})
-//   });
+  	// find all of the records
+  	Menu.find(function (err, Menus) {
+  		if (err) return console.error(err);
+  		console.log(Menus);
+  	})
+  });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -65,18 +67,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/api/home',function(req,res){
-  console.log('home hit');
-  var subheader = {subheader: 'To Joe\'s sick ass website'}
-  res.send(subheader);
-});
+// ### LIST OF ALL ROUTES AVALIBLE TO APP ###
+app.use('/api/home', routes);
 
-//app.use('/', routes);
-//app.use('/api/home', routes);
-//app.use('/Home', routes);
-//app.use('/users', users);
-
-// catch refresh to index
+// ### CATCH REFRESH TO INDEX ###
 app.all('/*', function(req, res, next) {
     // Just send the index.html for other files to support HTML5Mode
     res.sendFile('public/index.html', { root: __dirname });
