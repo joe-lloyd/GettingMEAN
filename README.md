@@ -8,4 +8,10 @@ The basic angular app here follows the structure principal that each part of the
 Angular and jQuery dont always play nice, bootstrap is built with jQuery and so can sometimes cause a little trouble in an angular app. By using the "Bootstrap.ui" we get a full bootstrap library that uses angular to perform any JavaScript tasks. This means less bugs and more productivity. 
 
 ##Express JS
-Usind Express JS Generator we have a basic app lay out. the public folder holds the angular app. To turn the server on enter this into the cmd line `DEBUG=myapp npm start`
+Usind Express JS Generator we have a basic app lay out. the public folder holds the angular app. Express JS is allowing me to Create routes in my app, each route has some sort of an api to allow for CRUD in the app. 
+
+##Mongo DB
+You wont find mongo DB in the repository because when vertioning we do not add the data. Instead mongo DB is in the package.json file as 2 dependencies, Mongoose and mongod. mongoose allows for schema to be created to base my objects off for CRUD opperations. Check the modles dir or any of the routes, they hold the api that allows for data manipulation.
+
+##Node JS
+Node JS is our web server, it allows us access to Express and the mongoose/mongod packages via npm (node package manager). We run the server by entering this into the cmd line `DEBUG=myapp npm start`
