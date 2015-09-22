@@ -17,43 +17,19 @@ var app = express();
 // ### MONGO DB SECTION ###
 
 // connected to localhost
-mongoose.connect("mongodb://localhost:27420/myAppStore");
+mongoose.connect("mongodb://localhost/myAppStore");
 
-// mongoose connection
-var db = mongoose.connection;
+var home = require('./models/home.js');
 
-//turn on db and check erors, displaying if connected
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function (callback) {
-	console.log("open");
-	var MenuSchema = mongoose.Schema({
-		title: String
-	});
- 	 //schema
- 	 var Menu = mongoose.model('Menu', MenuSchema);
+// var home_menues = new home({
+// 	main_title: 'This Is My Site Yo',
+//  	sub_title: 'Mongo DB in da house!'
+// });
 
-	// // add a record
-	// var about = new Menu({ title: 'About' });
-
- //  	// save the record
- //  	about.save(function (err, about) {
- //  		if (err) return console.error(err);
- //  	});
-
- //  	// add a record
-	// var contact = new Menu({ title: 'Contact' });
-
- //  	// save the record
- //  	contact.save(function (err, about) {
- //  		if (err) return console.error(err);
- //  	});
-
-  	// find all of the records
-  	Menu.find(function (err, Menus) {
-  		if (err) return console.error(err);
-  		console.log(Menus);
-  	})
-  });
+// home_menues.save(function(err){
+// 	if (err) throw err;
+// 	console.log('saved');
+// });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
