@@ -32,6 +32,7 @@ var home = require('./models/home.js');
 // });
 
 // view engine setup
+// Dont know if i need jade
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
