@@ -15,3 +15,7 @@ You wont find mongo DB in the repository because when vertioning we do not add t
 
 ##Node JS
 Node JS is our web server, it allows us access to Express and the mongoose/mongod packages via npm (node package manager). We run the server by entering this into the cmd line `DEBUG=myapp npm start`
+
+#Webhooks
+
+Currently trying to get the server to connect with webhooks so that every time i update here it will automatically feed to my server.
