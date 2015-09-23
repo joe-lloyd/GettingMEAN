@@ -18,4 +18,4 @@ Node JS is our web server, it allows us access to Express and the mongoose/mongo
 
 #Webhooks
 
-Currently trying to get the server to connect with webhooks so that every time i update here it will automatically feed to my server. (some change to trigger the push).
+Currently trying to get the server to connect with webhooks so that every time i update here it will automatically feed to my server. change to push
