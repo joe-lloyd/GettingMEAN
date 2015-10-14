@@ -30,3 +30,8 @@ node_modules
 
 .sass-cache/
 *.css.map
+
+node_modules
+dist
+.tmp
+bower_components
